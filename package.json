@@ -1,0 +1,22 @@
+{
+  "name": "iamdinobrowser",
+  "version": "1.0.0",
+  "description": "### install - go to url `chrome://dino` - open dev tool bar and go to console - add the following codes     ```javascript     var script = document.createElement('script');     script.src = 'https://cdn.jsdelivr.net/npm/synaptic@1.1.4/dist/synaptic.min.js';     document.head.appendChild(script);     ```",
+  "dependencies": {
+    "synaptic": "^1.1.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "train": "node src/trainer.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MarvatheLarva/IAMDinoBrowser.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MarvatheLarva/IAMDinoBrowser/issues"
+  },
+  "homepage": "https://github.com/MarvatheLarva/IAMDinoBrowser#readme"
+}

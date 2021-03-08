@@ -12,6 +12,6 @@
 
     ```javascript
     var script = document.createElement('script');
-    script.src = 'https://cdn.jsdelivr.net/npm/browser.js';
+    script.src = 'https://cdn.jsdelivr.net/gh/MarvatheLarva/IAMDinoBrowser@main/src/browser.js';
     document.head.appendChild(script);
     ```

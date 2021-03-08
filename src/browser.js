@@ -2,10 +2,10 @@ const network = synaptic.Network.fromJSON(JSON.parse('{"neurons":[{"trace":{"ele
 
 const state = {
     jumping: false,
-    ducking: 0
+    ducking: false
 };
 
-function jump(jumping, ducking) {
+function jump(jumping) {
     if (jumping || state.jumping) { return }
 
     state.ducking = 0;
@@ -16,12 +16,12 @@ function jump(jumping, ducking) {
 }
 
 function duck(ducking, jumping) {
-    if (ducking || state.ducking > 0 && jumping) { return }
+    if (ducking || state.ducking && jumping) { return }
     
     state.jumping = false;
     document.dispatchEvent(new KeyboardEvent("keyup", { keyCode: 38 }));
     
-    state.ducking++;
+    state.ducking = true;
     document.dispatchEvent(new KeyboardEvent("keydown", { keyCode: 40 }))
 }
 
@@ -46,12 +46,10 @@ function play(obstacles, tRex) {
         obstacle = obstacles[1]
     }
 
-    const inputs = acquire(obstacle);
-    // console.log(inputs);
+    const inputs = acquire(obstacle)
     const output = network.activate(inputs)[0];
-    // console.log(output);
 
-    if (output > 0.55) { jump(tRex.jumping, tRex.ducking) }
+    if (output > 0.55) { jump(tRex.jumping) }
     if (output < 0.54) { duck(tRex.ducking, tRex.jumping) }
 }
 
@@ -59,6 +57,8 @@ const protoUpdate = Runner.prototype.update;
 
 Runner.config.SPEED = 13;
 Runner.prototype.update = function() {
-    play(this.horizon.obstacles, this.tRex); 
+    // console.log(Object.assign({}, this));
+    if (this.activated) { play(this.horizon.obstacles, this.tRex) }
+
     protoUpdate.bind(this)();
 }
