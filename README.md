@@ -1,4 +1,4 @@
-# Dino game with Neuronal Network
+# Dino game with Neural Network
 
 ![Dino game](https://raw.githubusercontent.com/MarvatheLarva/IAMDinoBrowser/main/dino.gif)
 
