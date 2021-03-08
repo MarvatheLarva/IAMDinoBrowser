@@ -1,5 +1,7 @@
 # Dino game with Neuronal Network
 
+![Dino game](https://raw.githubusercontent.com/MarvatheLarva/IAMDinoBrowser/main/dino.gif)
+
 ### install
 - go to url `chrome://dino`
 - open dev tool bar and go to console
